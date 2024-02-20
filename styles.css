@@ -7,6 +7,14 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+.about-us{
+    display: flex;
+    text-align: center;
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    flex-direction: column;
+}
 .shop-now{
     background-color: #4CAF50;
     color: white;
