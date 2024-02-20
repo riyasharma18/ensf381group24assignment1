@@ -1,20 +1,27 @@
-/*
-Used the following code snippet in the header section of each file:
-<style>
-    header {
-        background-color: #333;
-        padding: 20px;
-        margin: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-</style>
-*/
-
-/*
-Used the following code snippet in the header section of each file:
-<style>
+/* CSS code for index.html*/
+header {
+    background-color: #333;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shop-now{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    display: inline-flex;
+}
+.customer-reviews{
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
 footer {
     background-color: #333;
     padding: 10px;
@@ -22,18 +29,54 @@ footer {
     color: white;
     text-align: center;
 }
-</style>
-/*
 
-/*
-Used the following code snippet in the customer-reviews class in the index.html file:
-<style>
-.customer-reviews{
-            background-color: #ddd;
-            padding: 20px;
-            margin: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-</style>
-*/
+/* CSS code for products.html*/
+header {
+    background-color: #333;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer {
+    background-color: #333;
+    padding: 10px;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+/* CSS code for contact.html*/
+header {
+    background-color: #333;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer {
+    background-color: #333;
+    padding: 10px;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+/* CSS code for login.html*/
+header {
+    background-color: #333;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer {
+    background-color: #333;
+    padding: 10px;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
