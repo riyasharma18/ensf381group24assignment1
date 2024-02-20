@@ -25,3 +25,15 @@ footer {
 </style>
 /*
 
+/*
+Used the following code snippet in the customer-reviews class in the index.html file:
+<style>
+.customer-reviews{
+            background-color: #ddd;
+            padding: 20px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+</style>
+*/
