@@ -106,11 +106,11 @@ footer {
     margin: 10px;
 }
 .login a {
-    background-color: #007BFF;
+    color: #007BFF;
     opacity: 1.0;
 }
 .login a:hover {
-    background-color: #007BFF;
+    color: #007BFF;
     text-decoration: underline;
 }
 /*Style the signup link with a contrasting color of #007BFF (blue), underline on hover, and
