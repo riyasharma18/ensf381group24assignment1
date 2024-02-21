@@ -1,12 +1,18 @@
 /* CSS code for index.html*/
+body {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     background-color: #333;
     padding: 20px;
-    margin: 0;
+    margin: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    box-sizing: border-box;
 }
 div {
     display: flex;
@@ -15,7 +21,16 @@ div {
     background-color: #333;
     color: white;
     padding: 10px 20px;
+    box-sizing: border-box;
+
+
 }
+
+a {
+    color: white; 
+    text-decoration: none;
+}
+
 .about-us{
     display: flex;
     text-align: center;
@@ -42,84 +57,21 @@ div {
 footer {
     background-color: #333;
     padding: 10px;
-    margin: 0;
     color: white;
     text-align: center;
+    margin: 0px;
     width: 100%;
+    box-sizing: border-box;
+
 }
 
 /* CSS code for products.html*/
-header {
-    background-color: #333;
-    padding: 20px;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-div {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-}
-footer {
-    background-color: #333;
-    padding: 10px;
-    margin: 0;
-    color: white;
-    text-align: center;
-    width: 100%;
-}
+
 
 /* CSS code for contact.html*/
-header {
-    background-color: #333;
-    padding: 20px;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-div {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-}
-footer {
-    background-color: #333;
-    padding: 10px;
-    margin: 0;
-    color: white;
-    text-align: center;
-    width: 100%;
-}
+
 
 /* CSS code for login.html*/
-header {
-    background-color: #333;
-    padding: 20px;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-div {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-}
 .login {
     display: flex;
     flex-direction: column;
@@ -166,11 +118,3 @@ a margin of 10px*/
 /*Put login button on same line as password*/
 /*Check login sign up button underline*/
 /*Fix widths of username, password and login boxes*/
-footer {
-    background-color: #333;
-    padding: 10px;
-    margin: 0;
-    color: white;
-    text-align: center;
-    width: 100%;
-}
