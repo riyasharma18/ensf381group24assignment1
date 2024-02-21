@@ -120,6 +120,49 @@ div {
     color: white;
     padding: 10px 20px;
 }
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+.login label {
+    display: block;
+    margin: 10px;
+}
+.login input {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    /*add placeholder text in the username and password fields*/
+}
+.login button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    opacity: 0.5;
+}
+.login button:hover {
+    background-color: #45A049;
+    margin: 10px;
+}
+.login a {
+    background-color: #007BFF;
+    opacity: 1.0;
+}
+.login a:hover {
+    background-color: #007BFF;
+    text-decoration: underline;
+}
+/*Style the signup link with a contrasting color of #007BFF (blue), underline on hover, and
+a margin of 10px*/
 footer {
     background-color: #333;
     padding: 10px;
