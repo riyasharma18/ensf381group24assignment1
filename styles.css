@@ -65,8 +65,28 @@ footer {
 }
 
 /* CSS code for products.html*/
+.products button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
 
+.products button:hover {
+    background-color: #45A049;
+}
+@media screen and (min-width: 769px) {
+  
+}
 
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 480px) {
+
+}
 /* CSS code for contact.html*/
 .contact{
     display: flex;
@@ -128,6 +148,7 @@ footer {
 .login button:hover {
     background-color: #45A049;
     margin: 10px;
+    opacity: 1.0;
 }
 .login a {
     color: #007BFF;
