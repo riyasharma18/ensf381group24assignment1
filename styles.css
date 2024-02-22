@@ -65,6 +65,36 @@ footer {
 }
 
 /* CSS code for products.html*/
+
+.products{
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+}
+
+.products td{
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.products td:hover{
+    background-color: #fff;
+}
+
+.products td p {
+    color:#007BFF;
+    font-weight: bold;
+}
+
+.products image{
+    max-width: 100%;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
 .products button {
     background-color: #4CAF50;
     color: #fff;
@@ -76,6 +106,7 @@ footer {
 .products button:hover {
     background-color: #45A049;
 }
+
 @media screen and (min-width: 769px) {
   
 }
