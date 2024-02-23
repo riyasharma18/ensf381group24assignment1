@@ -73,6 +73,7 @@ footer {
 }
 
 .products td{
+    border: 10px solid #ddd;
     background-color: #f9f9f9;
     text-align: center;
     padding: 20px;
@@ -89,7 +90,7 @@ footer {
     font-weight: bold;
 }
 
-.products image{
+.products img{
     max-width: 100%;
     margin-bottom: 10px;
     border-radius: 8px;
@@ -107,17 +108,20 @@ footer {
     background-color: #45A049;
 }
 
-@media screen and (min-width: 769px) {
-  
-}
-
 @media screen and (max-width: 768px) {
+    .products td {
+        display: block;
+        width: 80%;
+    }
 
 }
 
 @media screen and (max-width: 480px) {
-
+    .products td {
+        width: 80%;
+    }
 }
+
 /* CSS code for contact.html*/
 .contact{
     display: flex;
