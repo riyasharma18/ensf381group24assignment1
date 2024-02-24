@@ -158,19 +158,18 @@ footer {
     text-align: center;
     background-color: #ddd;
     padding: 20px;
-    margin: 20px;
+    margin: 20px 0;
     border-radius: 10px;
 }
 .login label {
     display: block;
-    margin: 10px;
+    margin: 10px 0;
 }
 .login input {
     background-color: #fff;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-    /*add placeholder text in the username and password fields*/
 }
 .login button {
     background-color: #4CAF50;
@@ -193,7 +192,5 @@ footer {
     color: #007BFF;
     text-decoration: underline;
 }
-/*Style the signup link with a contrasting color of #007BFF (blue), underline on hover, and
-a margin of 10px*/
 /*Put login button on same line as password*/
 /*Fix widths of username, password and login boxes*/
