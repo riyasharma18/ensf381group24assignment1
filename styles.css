@@ -156,6 +156,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    align-items: center;
     background-color: #ddd;
     padding: 20px;
     margin: 20px 0;
@@ -163,15 +164,21 @@ footer {
 }
 .login label {
     display: block;
+    text-align: left;
     margin: 10px 0;
+    width: 18%;
 }
 .login input {
+    display: inline-block;
+    width: 18%;
     background-color: #fff;
     padding: 10px;
-    margin: 10px;
+    margin: 10px 0;
     border-radius: 5px;
 }
 .login button {
+    display: inline-block;
+    width: 7%;
     background-color: #4CAF50;
     color: #fff;
     padding: 10px;
@@ -181,7 +188,6 @@ footer {
 }
 .login button:hover {
     background-color: #45A049;
-    margin: 10px;
     opacity: 1.0;
 }
 .login a {
@@ -193,4 +199,3 @@ footer {
     text-decoration: underline;
 }
 /*Put login button on same line as password*/
-/*Fix widths of username, password and login boxes*/
