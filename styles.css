@@ -163,14 +163,14 @@ footer {
     border-radius: 10px;
 }
 .login label {
+    width: 28%;
     display: block;
     text-align: left;
     margin: 10px 0;
-    width: 18%;
 }
 .login input {
     display: inline-block;
-    width: 18%;
+    align-items: left;
     background-color: #fff;
     padding: 10px;
     margin: 10px 0;
@@ -178,7 +178,6 @@ footer {
 }
 .login button {
     display: inline-block;
-    width: 7%;
     background-color: #4CAF50;
     color: #fff;
     padding: 10px;
