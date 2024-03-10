@@ -197,6 +197,7 @@ footer {
 /* CSS code for signup.html*/
 .signup {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
