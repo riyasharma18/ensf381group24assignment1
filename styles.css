@@ -19,11 +19,11 @@ div {
     justify-content: space-around;
     width: 100%;
     background-color: #333;
-    padding: 10px 20px;
     box-sizing: border-box;
-
+    padding: 10px 20px;
 
 }
+
 
 a {
     color: white; 
@@ -42,7 +42,8 @@ a {
     background-color: #4CAF50;
     color: white;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: none;
     margin: 20px;
     display: inline-flex;
 }
@@ -73,12 +74,18 @@ footer {
 }
 
 .products td{
-    border: 10px solid #ddd;
     background-color: #f9f9f9;
     text-align: center;
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
+    width: 50%;
+}
+
+.products tr{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .products td:hover{
@@ -108,18 +115,20 @@ footer {
     background-color: #45A049;
 }
 
-@media screen and (max-width: 768px) {
-    .products td {
-        display: block;
-        width: 80%;
-    }
-
+#cart-section {
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    display: block;
+    text-align: center;
 }
 
-@media screen and (max-width: 480px) {
-    .products td {
-        width: 80%;
-    }
+#cart-items {
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    display: block;
+    text-align: center;
 }
 
 /* CSS code for contact.html*/
