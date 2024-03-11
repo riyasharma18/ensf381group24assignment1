@@ -66,7 +66,6 @@ footer {
 }
 
 /* CSS code for products.html*/
-
 .products{
     background-color: #ddd;
     padding: 20px;
@@ -202,4 +201,45 @@ footer {
     color: #007BFF;
     margin: 10px;
     text-decoration: underline;
+}
+.message-box {
+    border: 2px solid #f9f9f9;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 20px;
+}
+
+/* CSS code for signup.html*/
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+.signup label {
+    display: block;
+    margin: 10px;
+}
+.signup input {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.signup button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    opacity: 0.5;
+}
+.signup button:hover {
+    background-color: #45A049;
+    opacity: 1.0;
 }
