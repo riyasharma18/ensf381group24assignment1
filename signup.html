@@ -26,15 +26,17 @@
     <main>
         
         <section class="signup">
+            <form onSubmit = "buttonClick(event)">
                 <label for="Username">Username:</label>
-                <input type="Username" id="Username" name="Username" placeholder="Enter your username">
+                <input type="Username" id="Username" name="Username" placeholder="Enter your username" required>
                 <label for="Password">Password:</label>
-                <span><input type="Password" id="Password" name="Password" placeholder="Enter your password">
+                <span><input type="Password" id="Password" name="Password" placeholder="Enter your password" required>
                 <label for="Confirm Password">Confirm Password:</label>
-                <span><input type="Confirm Password" id="Confirm Password" name="Confirm Password" placeholder="Confirm your password">
+                <span><input type="Confirm Password" id="Confirm Password" name="Confirm Password" placeholder="Confirm your password" required>
                 <label for="Email">Email:</label>
-                <span><input type="Email" id="Email" name="Email" placeholder="Enter your email">
-                <button>Signup</button></span>
+                <span><input type="Email" id="Email" name="Email" placeholder="Enter your email" required>
+                <button onclick = "checkInput()">Signup</button></span>
+            </form>
         </section>
 
 
@@ -43,6 +45,143 @@
     <footer>
         <p>Copyright &copy; 2024 Joya Jewellery</p>
     </footer>
+
+    <script>
+        function buttonClick(event) {
+            event.preventDefault();
+        }
+
+        const printError = [];
+
+        var checkUsername = /^[\w\-]+$/;
+        var checkPassword = /^[0-9a-zA-Z_|?`~\/!@#$%\^&*()\-=+/[\]{};:'",.<>]+$/;
+        var checkLetter = /[a-zA-Z]/;
+        var checkNumber = /[0-9]/;
+        var checkSpecialChar = /[_|?`~\/!@#$%\^&*()\-=+/[\]{};:'",.<>]/;
+        var checkEmail = /[]/;
+        var checkDomain = [".com", ".io", ".net"];
+
+        function usernameCheck() {
+            var usernameInput = document.getElementById("Username").value;
+            if(usernameInput.length > 20 || usernameInput.length < 3) {
+                printError.push("The username must be between 3 and 20 characters long.")
+                return;
+            }
+            if(!(checkUsername.test(usernameInput))) {
+                printError.push("The username can only contain alphanumeric characters (letters A-Z, numbers 0-9), hyphens(-), and underscores(_). It cannot contain spaces or special characters other than hyphens and underscores.");
+                return;
+            }
+            if(!(usernameInput[0] >= "A" && usernameInput[0] <= "Z") && !(usernameInput[0] >= "a" && usernameInput[0] <= "z")) {
+                printError.push("The username must start with a letter.");
+                return;
+            }
+        }
+
+        function passwordCheck() {
+            var passwordInput = document.getElementById("Password").value;
+            if(passwordInput.length < 8) {
+                printError.push("The password must be at least 8 characters long.");
+                return;
+            }
+            if(!(checkLetter.test(passwordInput))) {
+                printError.push("The password must contain at least one uppercase letter and at least one lowercase letter.");
+                return;
+            }
+            if(!(checkNumber.test(passwordInput))) {
+                printError.push("The password must contain at least one number.");
+                return;
+            }
+            if(!(checkSpecialChar.test(passwordInput))) {
+                printError.push("The password must contain at least one special character from the following: |?`~/!@#$%^&*()-=+[]{};:'\",.<>.");
+                return;
+            }
+            if(/\s/.test(passwordInput)) {
+                printError.push("The password cannot contain spaces.");
+                return;
+            }
+            if(!(checkPassword.test(passwordInput))) {
+                printError.push("The entered password does not meet all of the requirements.");
+                return;
+            }
+        }
+
+        function passwordConfirm() {
+            var passwordInput = document.getElementById("Password").value;
+            var passwordConfirm = document.getElementById("Confirm Password").value;
+            if(passwordInput != passwordConfirm) {
+                printError.push("The passwords must match.");
+            }
+            return;
+        }
+
+        function emailCheck() {
+            var emailInput = document.getElementById("Email").value;
+            var i = emailInput.length;
+            while(emailInput[i] !== "." && i > 0) {
+                console.log(emailInput[i]);
+                i--;
+            }
+            if(i == 0) {
+                printError.push("The email address must be a valid email address format (e.g., username@example.com)");
+                return;
+            }
+            if(/\s/.test(emailInput)) {
+                printError.push("The email address cannot contain spaces.")
+                return;
+            }
+            var domainCheck = emailInput.slice(i, emailInput.length);
+            console.log(domainCheck);
+            if(emailInput.indexOf('@') <= 0 || !(checkDomain.includes(domainCheck))) {
+                printError.push("The email address must contain an address sign followed by a domain name (.com, .net, .io).");
+                return;
+            }
+            for (var j = 0; j < checkDomain.length; j++) {
+                if(checkDomain[j] == domainCheck) {
+                    return;
+                }
+            }
+            printError.push("The email address must be a valid email address format (e.g., username@example.com)");
+            return;
+        }
+
+        function checkInput() {
+            var outputMessage = document.getElementById("signupMessage");
+            var div = document.createElement("div");
+            var outputPage = document.getElementById("signupPage");
+            if(outputMessage) {
+                outputMessage.remove();
+            }
+            printError.length = 0;
+            div.id = "signupMessage";
+            div.style.backgroundColor = "#f9f9f9";
+            div.style.padding = "10px";
+            div.style.margin = "20px";
+            div.style.border = "2px";
+
+            usernameCheck();
+            passwordCheck();
+            passwordConfirm();
+            emailCheck();
+
+            if(printError.length !== 0) {
+                for(var i = 0; i < printError.length; i++) {
+                    var p = document.createElement("p");
+                    p.textContent = printError[i];
+                    div.appendChild(p);
+                }
+                outputPage.appendChild(div);
+            }
+            else {
+                var p = document.createElement("p");
+                p.textContent = "You have successfully signed up!";
+                div.appendChild(p);
+                outputPage.appendChild(div);
+            }
+
+        }
+
+    </script>
+
 </body>
 </html>
 
