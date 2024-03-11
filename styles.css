@@ -193,6 +193,12 @@ footer {
     margin: 10px;
     text-decoration: underline;
 }
+.message-box {
+    border: 2px solid #f9f9f9;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 20px;
+}
 
 /* CSS code for signup.html*/
 .signup {
