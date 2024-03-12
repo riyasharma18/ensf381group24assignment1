@@ -23,7 +23,7 @@
         <a href="login.html">Go To Login Page</a>
         <a href="contact.html">Go To Contact Page</a>
     </div>
-    <main>
+    <main id="login">
         
         <section class="login">
             <form onSubmit = "loginClick(event)">
@@ -90,7 +90,9 @@
                 loginSpace.appendChild(paragraph);
                 loginSpace.style.display = "block";
             }
-            
+            catch (error) {
+                alert('Unsuccessful API call. Details are as follows:', error);
+            }
         }
     </script>
 </body>
