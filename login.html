@@ -31,7 +31,7 @@
                 <input type="Username" id="Username" name="Username" placeholder="Enter your username">
                 <label for="Password">Password:</label>
                 <span><input type="Password" id="Password" name="Password" placeholder="Enter your password">
-                <button type="button" onclick="loginClick">Login</button></span>
+                <button type="button" onclick="verifyLogin">Login</button></span>
             </form>
 
             <p>New User?<a href="signup.html"> Click here to sign up!</a></section></p>>
@@ -50,14 +50,14 @@
             event.preventDefault();
         }
         const loginDisplay = document.getElementById('login');
-        var alert = document.createElement("div");
-        alert.id = "loginSpace";
-        alert.style.border = "black solid 2px";
-        alert.style.background = "#f9f9f9";
-        alert.style.padding = "10px";
-        alert.style.margin = "20px";
-        alert.style.display = "none";
-        loginDisplay.appendChild(alert);
+        var problem = document.createElement("div");
+        problem.id = "loginSpace";
+        problem.style.border = "black solid 2px";
+        problem.style.background = "#f9f9f9";
+        problem.style.padding = "10px";
+        problem.style.margin = "20px";
+        problem.style.display = "none";
+        loginDisplay.appendChild(problem);
 
         async function verifyLogin() {
             try {
