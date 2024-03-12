@@ -130,6 +130,27 @@ footer {
     text-align: center;
 }
 
+.cart-item {
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+}
+
+.remove-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.remove-button:hover {
+    background-color: #ff0000;
+}
+
 /* CSS code for contact.html*/
 .contact{
     display: flex;
