@@ -35,6 +35,10 @@
                 printError.push("The username must start with a letter.");
                 return;
             }
+            if(/\s/.test(usernameInput)) {
+                printError.push("The username cannot contain spaces.");
+                return;
+            }
             if(!(checkUsername.test(usernameInput))) {
                 printError.push("The username can only contain alphanumeric characters (letters A-Z, numbers 0-9), hyphens(-), and underscores(_). It cannot contain spaces or special characters other than hyphens and underscores.");
                 return;
