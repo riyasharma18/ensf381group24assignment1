@@ -10,42 +10,6 @@
     <meta name =" keywords " content =" HTML , Web Development , Jewellery , png " >
     <meta name =" author " content =" Riya Sharma, Joan Osike" >
     <br><link rel = "stylesheet" href = "styles.css">
-</head>
-<body>
-    <header>
-        <img src="images/logo.png" alt="Our Logo" width="150">
-        <span style="color:brown;font-size:60px;">Joya Jewellery</span>
-    </header>
-
-    <div>
-        <a href="index.html">Go To Home Page</a>
-        <a href="products.html">Go To Products Page</a>
-        <a href="login.html">Go To Login Page</a>
-        <a href="contact.html">Go To Contact Page</a>
-    </div>
-    <main>
-        
-        <section class="signup">
-            <form onSubmit = "signupClick(event)">
-                <label for="Username">Username:</label>
-                <input type="Username" id="Username" name="Username" placeholder="Enter your username" required>
-                <label for="Password">Password:</label>
-                <span><input type="Password" id="Password" name="Password" placeholder="Enter your password" required>
-                <label for="Confirm Password">Confirm Password:</label>
-                <span><input type="Confirm Password" id="Confirm Password" name="Confirm Password" placeholder="Confirm your password" required>
-                <label for="Email">Email:</label>
-                <span><input type="Email" id="Email" name="Email" placeholder="Enter your email" required>
-                <button onclick = "checkInput()">Signup</button></span>
-            </form>
-        </section>
-
-
-    </main>
-
-    <footer>
-        <p>Copyright &copy; 2024 Joya Jewellery</p>
-    </footer>
-
     <script>
         function signupClick(event) {
             event.preventDefault();
@@ -147,7 +111,7 @@
         function checkInput() {
             var outputMessage = document.getElementById("signupMessage");
             var div = document.createElement("div");
-            var outputPage = document.getElementById("signupPage");
+            var outputPage = document.getElementById("signup-page");
             if(outputMessage) {
                 outputMessage.remove();
             }
@@ -181,7 +145,41 @@
         }
 
     </script>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Our Logo" width="150">
+        <span style="color:brown;font-size:60px;">Joya Jewellery</span>
+    </header>
+
+    <div>
+        <a href="index.html">Go To Home Page</a>
+        <a href="products.html">Go To Products Page</a>
+        <a href="login.html">Go To Login Page</a>
+        <a href="contact.html">Go To Contact Page</a>
+    </div>
+    <main id="signup-page">
+        
+        <section class="signup">
+            <form onSubmit = "signupClick(event)">
+                <label for="Username">Username:</label>
+                <input type="Username" id="Username" name="Username" placeholder="Enter your username" required>
+                <label for="Password">Password:</label>
+                <span><input type="Password" id="Password" name="Password" placeholder="Enter your password" required>
+                <label for="Confirm Password">Confirm Password:</label>
+                <span><input type="Password" id="Confirm Password" name="Confirm Password" placeholder="Confirm your password" required>
+                <label for="Email">Email:</label>
+                <span><input type="Email" id="Email" name="Email" placeholder="Enter your email" required>
+                <button type="signup" onclick="checkInput()">Signup</button></span>
+            </form>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>Copyright &copy; 2024 Joya Jewellery</p>
+    </footer>
 
 </body>
 </html>
-
