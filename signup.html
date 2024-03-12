@@ -31,12 +31,12 @@
                 printError.push("The username must be between 3 and 20 characters long.")
                 return;
             }
-            if(!(checkUsername.test(usernameInput))) {
-                printError.push("The username can only contain alphanumeric characters (letters A-Z, numbers 0-9), hyphens(-), and underscores(_). It cannot contain spaces or special characters other than hyphens and underscores.");
-                return;
-            }
             if(!(usernameInput[0] >= "A" && usernameInput[0] <= "Z") && !(usernameInput[0] >= "a" && usernameInput[0] <= "z")) {
                 printError.push("The username must start with a letter.");
+                return;
+            }
+            if(!(checkUsername.test(usernameInput))) {
+                printError.push("The username can only contain alphanumeric characters (letters A-Z, numbers 0-9), hyphens(-), and underscores(_). It cannot contain spaces or special characters other than hyphens and underscores.");
                 return;
             }
         }
