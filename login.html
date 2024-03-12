@@ -61,7 +61,7 @@
 
         async function verifyLogin() {
             try {
-                var p = document.createElement("p");
+                var paragraph = document.createElement("p");
                 const result = await
                     fetch("https://jsonplaceholder.typicode.com/users");
                 const checking = await result.json();
@@ -82,12 +82,12 @@
                     }
                 });
                 if (check == true) {
-                    p.textContent = "You have successfully logged in!";
+                    paragraph.textContent = "You have successfully logged in!";
                 }
                 else {
-                    p.textContent = "Unsuccessful login. Please try again.";
+                    paragraph.textContent = "Unsuccessful login. Please try again.";
                 }
-                loginSpace.appendChild(message);
+                loginSpace.appendChild(paragraph);
                 loginSpace.style.display = "block";
             }
             catch (error) {
