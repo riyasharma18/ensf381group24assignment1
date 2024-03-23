@@ -1,3 +1,6 @@
+// Partner 1: Riya Sharma, UCID: 30169723
+// Partner 2: Joan Osike, UCID: 30178541
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
