@@ -10,8 +10,8 @@ function Header(){
     return(
         <header>
             <div className="header" style={header}>
-            <h1 style={{fontWeight: 'normal', fontSize: '18px'}}>Name Of Company</h1>
             <img style={{height: '55px'}} src='/images/logo.png' className='logo' alt="company logo" />
+            <h1 style={{fontWeight: 'normal', fontSize: '18px'}}>Company Name</h1>
             </div>
             <div className="navbar" style={header}>
                 <a href='/'>Home</a>
