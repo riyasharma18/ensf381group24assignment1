@@ -5,6 +5,7 @@ function Header(){
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        padding: '10px'
     }
 
     return(

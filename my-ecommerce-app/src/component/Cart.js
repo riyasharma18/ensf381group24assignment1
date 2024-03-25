@@ -1,8 +1,5 @@
-// Cart.js
 import React from 'react';
 import CartItem from './CartItem';
-
-// check that item is same as product. and that .quantity works
 
 function Cart({cart, removeFromCart}) {
   return (

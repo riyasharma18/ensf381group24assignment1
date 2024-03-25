@@ -1,7 +1,5 @@
-// CartItem.js
 import React from 'react';
 
-// may have error with .quantity bc not defined
 function CartItem({item, removeFromCart}) {
   function handleRemove() {
     removeFromCart(item);

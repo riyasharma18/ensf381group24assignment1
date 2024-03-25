@@ -1,4 +1,3 @@
-// ProductList.js
 import React from 'react';
 import ProductItem from './ProductItem';
 import product from '../data/products';
