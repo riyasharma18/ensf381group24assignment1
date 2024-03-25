@@ -30,7 +30,7 @@ function HomeMainSection() {
                     <div key={index}>
                         <p>{review.customerName}</p>
                         <p>{review.reviewContent}</p>
-                        <div>{"★".repeat(review.stars)}</div>
+                        <div>{"⭐️".repeat(review.stars)}</div>
                     </div>
                 ))}
             </section>
