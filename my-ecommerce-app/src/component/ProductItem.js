@@ -10,7 +10,7 @@ function ProductItem({product, addToCart}) {
   return (
     <div className="product-item" onMouseEnter={() => setShowDescription(true)} onMouseLeave={() => setShowDescription(false)}>
       <img src={product.image} alt={product.name} style={{ width: '300px'}} />
-      <h3>{product.name}</h3>
+      <p>{product.name}</p>
       <p>${product.price}</p>
       <button onClick={handleAddToCart}>Add to Cart</button>
       {showDescription && <p>{product.description}</p>}

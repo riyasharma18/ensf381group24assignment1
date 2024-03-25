@@ -8,7 +8,7 @@ function CartItem({item, removeFromCart}) {
   return (
     <div className="cart-item">
       <img src={item.image} alt={item.name} style={{width: '250px'}}/>
-      <h3>{item.name}</h3>
+      <p>{item.name}</p>
       <p>Quantity: {item.quantity}</p>
       <p>Total: ${item.quantity * item.price}</p>
       <button onClick={handleRemove}>Remove</button>

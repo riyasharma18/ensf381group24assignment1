@@ -8,7 +8,7 @@ function Cart({cart, removeFromCart}) {
       {cart.map(item => (
         <CartItem key={item.id} item={item} removeFromCart={removeFromCart}/>
       ))}
-      <h3>Total (in cart): ${cart.reduce((total, item) => total + item.quantity * item.price, 0).toFixed(2)}</h3>
+      <p>Total (in cart): ${cart.reduce((total, item) => total + item.quantity * item.price, 0).toFixed(2)}</p>
     </div>
   );
 }
