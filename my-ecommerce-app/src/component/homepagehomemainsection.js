@@ -19,7 +19,7 @@ function HomeMainSection(){
         <div className="home-main-section">
             <section>
                 <h2>About Us</h2>
-                <p>At Joya Jewellers, our mission is for each of our customers to experience "The Joya Life" while shopping with us. Each of our products tells a story, enhancing the shopping experience for each of our beloved clients. We take pride in our exquisite collection and exceptional in-house designs and services. Our vision is to expand our mindset to every corner of the globe.</p>
+                <p>Welcome to our online store! We are passionate about providing high-quality products and exceptional customer service. Learn more about our story and commitment to your satisfaction.</p>
                 <Link to = "/products">
                     <button>Shop Now</button>
                 </Link>
