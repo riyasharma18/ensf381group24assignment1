@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import reviewsData from '../data/reviews';
 
-const HomeMainSection = () => {
+function HomeMainSection(){
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
@@ -10,7 +10,7 @@ const HomeMainSection = () => {
         setReviews(randomReviews);
     }, []);
 
-    const getRandomReviews = (count) => {
+    function getRandomReviews(count){
         const shuffled = reviewsData.sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
     };

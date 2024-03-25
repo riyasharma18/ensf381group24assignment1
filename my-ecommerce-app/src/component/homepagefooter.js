@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Footer = () => {
-    return (
+function Footer(){
+    return(
         <footer>
-            <p>&copy; {new Date().getFullYear()} Joya Jewellery</p>
+            <p>style = {{textAlign: 'left'}}Copyright &copy; Joya Jewellery</p>
         </footer>
     );
-};
+}
 
 export default Footer;
