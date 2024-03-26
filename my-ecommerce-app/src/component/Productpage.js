@@ -9,7 +9,7 @@ function ProductPage() {
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('cart'));
-    if (storedCart) {
+    if (storedCart && storedCart.length > 0) {
       setCart(storedCart);
     }
   }, []);
