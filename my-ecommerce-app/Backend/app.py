@@ -80,7 +80,7 @@ products = [
 ]
 
 @app.route('/register', methods=['POST'])
-def register_user():
+def register():
     information = request.json
     username = information.get('username')
     password = information.get('password')
@@ -99,6 +99,10 @@ def login():
         if user['username'] == username and user['password'] == password:
             return jsonify({'message': 'Login successful'})
     return jsonify({'error': 'Username or password is incorrect'})
+
+@app.route('/products', methods=['GET'])
+def productsinfo():
+    return jsonify(products)
 
 if __name__ == '__main__':
     app.run(debug=True)
