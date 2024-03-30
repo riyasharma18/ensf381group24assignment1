@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import Footer from './Footer';
 
-const LoginPage = () => {
+const LoginPage = ({ setIsLoggedIn }) => {
   const [showLogin, setShowLogin] = useState(true);
 
   const switchForm = () => {
@@ -15,7 +15,7 @@ const LoginPage = () => {
     <div>
       <Header />
       {showLogin ? (
-        <LoginForm switchToSignup={switchForm} />
+        <LoginForm switchToSignup={switchForm} setIsLoggedIn={setIsLoggedIn} />
       ) : (
         <SignupForm switchToLogin={switchForm} />
       )}

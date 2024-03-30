@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm = ({ switchToSignup }) => {
+const LoginForm = ({ switchToSignup, setIsLoggedIn }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (username.trim() === '' || password.trim() === '') {
       setErrorMessage('Please enter both username and password.');
@@ -19,8 +19,9 @@ const LoginForm = ({ switchToSignup }) => {
     const foundUser = users.find(user => user.username === username && user.password === password);
 
     if (foundUser) {
-      setErrorMessage('You have successfully logged in!');
-      navigate('/products');
+        setIsLoggedIn(true);
+        setErrorMessage('You have successfully logged in!');
+        navigate('/products');
     } else {
       setErrorMessage('Unsuccessful login. Please check your username and password.');
     }
