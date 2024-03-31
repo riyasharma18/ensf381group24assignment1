@@ -1,19 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import customerReviews from '../data/products'; 
 
 function HomeMainSection() {
     const [randomReviews, setRandomReviews] = useState([]);
 
     useEffect(() => {
-        const randomReviews = getRandomReviews(2);
-        setRandomReviews(randomReviews);
+        fetch('/products') // Assuming the React app is served from the same origin as the Flask server
+            .then(response => response.json())
+            .then(data => {
+                const randomReviews = getRandomReviews(data, 2); // Assuming you want 2 random reviews
+                setRandomReviews(randomReviews);
+            })
+            .catch(error => console.error('Error fetching products:', error));
     }, []);
 
-    function getRandomReviews(count) {
-        const shuffled = customerReviews.sort(() => 0.5 - Math.random());
+    function getRandomReviews(reviews, count) {
+        const shuffled = reviews.sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
-    };
+    }
 
     return (
         <div className="home-main-section">
