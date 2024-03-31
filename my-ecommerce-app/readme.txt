@@ -9,7 +9,7 @@ pip install Flask
 
 To run: type "python app.py" into the terminal that starts with venv, and the following into another terminal:
 
-Install react-router-dom:
+Install react-router-dom with the following commands:
 cd my-ecommerce-app
 npm install react-router-dom
 npm start
