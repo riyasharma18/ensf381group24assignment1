@@ -5,7 +5,7 @@ function ProductList({ addToCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/products') // Assuming the React app is served from the same origin as the Flask server
+    fetch('/products') 
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));

@@ -5,10 +5,10 @@ function HomeMainSection() {
     const [randomReviews, setRandomReviews] = useState([]);
 
     useEffect(() => {
-        fetch('/products') // Assuming the React app is served from the same origin as the Flask server
+        fetch('/products')
             .then(response => response.json())
             .then(data => {
-                const randomReviews = getRandomReviews(data, 2); // Assuming you want 2 random reviews
+                const randomReviews = getRandomReviews(data, 2);
                 setRandomReviews(randomReviews);
             })
             .catch(error => console.error('Error fetching products:', error));
