@@ -7,16 +7,26 @@ import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const checkLoggedIn = () => {
+    return isLoggedIn;
+  };
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path = '/' element={<Homepage />} />
-      <Route path="/login" element={<Loginpage setIsLoggedIn={setIsLoggedIn} />} />
-      <Route
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        {Loginpage}
+        <Route path="/login" element={<Loginpage setIsLoggedIn={setIsLoggedIn} />} />
+        {Productpage}
+        <Route
           path="/products"
-          element={isLoggedIn ? <Productpage /> : <Navigate to="/login" />}
+          element={checkLoggedIn() ? <Productpage /> : <Navigate to="/login" />}
         />
-    </Routes>
+        {Loginpage}
+        <Route
+          path="/*"
+          element={checkLoggedIn() ? <Navigate to="/products" /> : <Navigate to="/login" />}
+        />
+      </Routes>
     </BrowserRouter>
   );
 }
