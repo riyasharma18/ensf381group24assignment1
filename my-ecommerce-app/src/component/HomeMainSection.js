@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import customerReviews from '../data/reviews'; 
+import customerReviews from '../data/products'; 
 
 function HomeMainSection() {
     const [randomReviews, setRandomReviews] = useState([]);
