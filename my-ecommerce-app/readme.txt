@@ -2,6 +2,7 @@ Install Flask:
 cd my-ecommerce-app
 cd Backend
 python -m venv venv
+Ensure /venv is in the .gitignore file
 For Windows run: venv\Scripts\activate
 For Unix or MacOS run: source venv/bin/activate
 pip install Flask
