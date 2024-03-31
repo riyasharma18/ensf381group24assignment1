@@ -1,9 +1,14 @@
-Install:
-react-router-dom
+Install Flask:
+cd my-ecommerce-app
+cd Backend
+python -m venv venv
+For Windows run: venv\Scripts\activate
+For Unix or MacOS run: source venv/bin/activate
+pip install Flask
 
-Use:
+To run: type "python app.py" into the terminal that starts with venv, and the following into another terminal:
+
+Install react-router-dom:
 cd my-ecommerce-app
 npm install react-router-dom
 npm start
-
-To run: type "python app.py" into terminal that starts with venv, and the above into another terminal
