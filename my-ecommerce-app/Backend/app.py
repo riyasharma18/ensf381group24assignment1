@@ -79,7 +79,7 @@ products = [
     }
 ]
 
-@app.route('/register', methods=['POST'])
+@app.route('/signup', methods=['POST'])
 def register():
     information = request.json
     username = information.get('username')

@@ -7,7 +7,7 @@ const SignupForm = ({ switchToLogin }) => {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     if (
       username.trim() === '' ||
@@ -23,18 +23,25 @@ const SignupForm = ({ switchToLogin }) => {
       return;
     }
     
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const isUsernameTaken = users.some(user => user.username === username);
-    if (isUsernameTaken) {
-      setErrorMessage('Username is already taken. Please choose a different one.');
-      return;
+    try {
+      const response = await fetch('http://localhost:5000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 'username':username, 'password':password, 'email':email }),
+      });
+
+      if (response.ok) {
+        setErrorMessage('You have successfully signed up!');
+      } else {
+        const data = await response.json();
+        setErrorMessage(data.error || 'Failed to sign up. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Signup failed:', error);
+      setErrorMessage('An error occurred during signup. Please try again later.');
     }
-
-    const newUser = { username, password, email };
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-
-    setErrorMessage("You have successfully signed up!");
   };
 
   return (

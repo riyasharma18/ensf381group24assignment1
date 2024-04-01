@@ -14,17 +14,28 @@ const LoginForm = ({ switchToSignup, setIsLoggedIn }) => {
       return;
     }
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    
-    const foundUser = users.find(user => user.username === username && user.password === password);
+    else{
+      try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 'username':username, 'password':password }),
+      });
 
-    if (foundUser) {
-        setIsLoggedIn(true);
-        setErrorMessage('You have successfully logged in!');
+      if (response.ok) {
+        setErrorMessage('');
+        setIsLoggedIn(true); 
         navigate('/products');
-    } else {
-      setErrorMessage('Unsuccessful login. Please check your username and password.');
-    }
+      } else {
+        const data = await response.json();
+        setErrorMessage(data.error || 'Unsuccessful login. Please check your username and password.');
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
+      setErrorMessage('An error occurred during login. Please try again later.');
+    }}
   };
 
   return (
