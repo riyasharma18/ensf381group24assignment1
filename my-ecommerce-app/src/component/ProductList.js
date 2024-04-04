@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import ProductItem from './ProductItem';
 
-function ProductList({ addToCart }) {
-  const [products, setProducts] = useState([]);
+function ProductList(props){
+  const [products, setProducts] = useState("");
 
   useEffect(() => {
-    fetch('http://localhost:5000/products') 
-      .then(response => response.json())
-      .then(data => setProducts(data))
-      .catch(error => console.error('Error fetching products:', error));
-  }, []);
+      fetch('http://127.0.0.1:5000/products', {
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'}
+          })
+          .then(response => {
+              if (response.ok) {
+                  return response.json();
+              } else {
+                  throw new Error('API call failed');
+              }
+          })
+          .then(data => setProducts(data))
+          .catch(error => console.log(error));
+      }, []);
 
-  return (
-    <div className="product-list">
-      {products.map(product => (
-        <ProductItem key={product.id} product={product} addToCart={addToCart} />
-      ))}
-    </div>
+  return(
+      <div className="product-list">
+          {(products) ? <ProductItem products={products} handleCartAdd={props.handleCartAdd} /> : ""}
+      </div>
   );
-}
+};
 
 export default ProductList;

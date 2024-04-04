@@ -1,9 +1,22 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import Homepage from './component/Homepage.js';
 import Productpage from './component/Productpage.js';
 import Loginpage from './component/Loginpage.js';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+
+const AuthContext = createContext();
+export const useAuthContext = () => useContext(AuthContext);
+export const AuthProvider = ({ children }) => {
+  const isAuthenticated = sessionStorage.getItem('authenticated')
+  const [authenticated, setAuthenticated] = useState(isAuthenticated ? isAuthenticated : false);
+
+  return(
+    <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,23 +24,15 @@ function App() {
     return isLoggedIn;
   };
   return (
+    <AuthProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        {Loginpage}
-        <Route path="/login" element={<Loginpage setIsLoggedIn={setIsLoggedIn} />} />
-        {Productpage}
-        <Route
-          path="/products"
-          element={checkLoggedIn() ? <Productpage /> : <Navigate to="/login" />}
-        />
-        {Loginpage}
-        <Route
-          path="/*"
-          element={checkLoggedIn() ? <Navigate to="/products" /> : <Navigate to="/login" />}
-        />
+        <Route path="/login" element={<Loginpage />} />
+        <Route path="/products" element={<Productpage />} />
       </Routes>
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 

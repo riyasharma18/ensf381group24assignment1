@@ -1,8 +1,8 @@
-from flask import Flask, request, jsonify, send_from_directory
-import json
-import os
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)#, origins=["http://localhost:5000"])
 
 users = []
 
@@ -91,18 +91,27 @@ def register():
     return jsonify({'message': 'This user has been successfully registered'})
 
 @app.route('/login', methods=['POST'])
-def login():
-    information = request.json
-    username = information.get('username')
-    password = information.get('password')
-    for user in users:
-        if user['username'] == username and user['password'] == password:
-            return jsonify({'message': 'Login successful'})
-    return jsonify({'error': 'Username or password is incorrect'})
+def registerUser():
+    new_user = request.get_json()
+    if "email" in new_user:
+        new_username = new_user.get('username')
+        for user in users:
+            if user['username'] == new_username:
+                return jsonify({"errorMessage": "This username has already been taken"})
+        users.append(new_user)
+        return jsonify({"errorMessage": "Signup was successful!"})
+    else:
+        test_username = new_user.get('username')
+        test_password = new_user.get('password')
+        for user in users:
+            print(user)
+            if user['username'] == test_username and user['password'] == test_password:
+                return(jsonify({"authenticated": True, "authMessage": "Authentication was successful"}))
+        return jsonify({"authenticated": False, "authMessage": "The username or password is incorrect"})
 
 @app.route('/products', methods=['GET'])
 def productsinfo():
-    return jsonify(products)
+    return products
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

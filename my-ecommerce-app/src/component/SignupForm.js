@@ -1,48 +1,54 @@
 import React, { useState } from 'react';
+import LoginForm from './LoginForm';
 
-const SignupForm = ({ switchToLogin }) => {
+function SignupForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [showLogin, setShowLogin] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSignup = async (e) => {
+  function handleSignup(e) {
     e.preventDefault();
-    if (
-      username.trim() === '' ||
+    if (username.trim() === '' ||
       password.trim() === '' ||
       confirmPassword.trim() === '' ||
-      email.trim() === ''
-    ) {
-      setErrorMessage('Please fill in all fields.');
-      return;
-    }
-    if (password !== confirmPassword) {
-      setErrorMessage('Passwords do not match.');
-      return;
-    }
-    
-    try {
-      const response = await fetch('http://localhost:5000/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 'username':username, 'password':password, 'email':email }),
-      });
-
-      if (response.ok) {
-        setErrorMessage('You have successfully signed up!');
+      email.trim() === ''){
+        setErrorMessage('Please fill in all fields.');
+        
+    } else {
+      if (password !== confirmPassword) {
+        setErrorMessage("Passwords do not match")
       } else {
-        const data = await response.json();
-        setErrorMessage(data.error || 'Failed to sign up. Please try again later.');
+        fetch('http://127.0.0.1:5000/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ 'username': username, 'password': password, 'email': email }),
+        })
+        .then(response => {
+          if (response.ok) {
+            
+            return response.json();
+          } else {
+            throw new Error('Registration failed');
+          }
+        })
+        .then(data => setErrorMessage(data.errorMessage))
+        .catch(error => setErrorMessage("An error occurred during signup. Please try again later."));
       }
-    } catch (error) {
-      console.error('Signup failed:', error);
-      setErrorMessage('An error occurred during signup. Please try again later.');
     }
-  };
+  }
+
+  function gotoLoginForm() {
+    setShowLogin(true); 
+}
+
+if (showLogin) {
+    return <LoginForm />; 
+}
 
   return (
     <div>
@@ -79,7 +85,7 @@ const SignupForm = ({ switchToLogin }) => {
         <br />
         <button type="submit">Signup</button>
         <br />
-        <button onClick={switchToLogin}>Switch to Login</button>
+        <button onClick={gotoLoginForm}>Switch to Login</button>
       </form>
     </div>
   );

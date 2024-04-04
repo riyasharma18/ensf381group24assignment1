@@ -1,68 +1,85 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import SignupForm from './SignupForm.js';
+import {useNavigate} from 'react-router-dom';
+import { useAuthContext } from '../App.js';
 
-const LoginForm = ({ switchToSignup, setIsLoggedIn }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate();
+function LoginForm() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [authMessage, setAuthMessage] = useState("");
+    const [showSignup, setShowSignup] = useState(false);
+    const {authenticated, setAuthenticated} = useAuthContext();
+    const [isInitialRender, setIsInitialRender] = useState(true);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    if (username.trim() === '' || password.trim() === '') {
-      setErrorMessage('Please enter both username and password.');
-      return;
+    const navigate = useNavigate();
+
+    useEffect(()=> {
+        if (isInitialRender){
+            setIsInitialRender(false)
+        }
+        else if (authenticated){
+            navigate(`/products`);
+        }
+    },[authenticated])
+    
+    function handleAuthenication() {
+        if (!username || !password) {
+            setAuthMessage("All fields required");
+        }
+        else{
+            fetch('http://127.0.0.1:5000/login',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({'username':username, 'password':password}),
+            })
+            .then(response => {
+                if (response.ok) {
+    
+                  return response.json();
+                } else {
+                    throw new Error('Authentication failed');
+                }
+            })
+            .then(data => {setAuthMessage(data.authMessage); setAuthenticated(data.authenticated); sessionStorage.setItem('authenticated', data.authenticated)})
+            .catch(error => setAuthMessage(error));
+    }console.log(authMessage)
+    };
+
+    function gotoSignupForm() {
+        setShowSignup(true); 
     }
 
-    else{
-      try {
-      const response = await fetch('http://localhost:5000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 'username':username, 'password':password }),
-      });
+    if (showSignup) {
+        return <SignupForm />; 
+    }
 
-      if (response.ok) {
-        setErrorMessage('');
-        setIsLoggedIn(true); 
-        navigate('/products');
-      } else {
-        const data = await response.json();
-        setErrorMessage(data.error || 'Unsuccessful login. Please check your username and password.');
-      }
-    } catch (error) {
-      console.error('Login failed:', error);
-      setErrorMessage('An error occurred during login. Please try again later.');
-    }}
-  };
+    return (
+        <div>
+            <h1>Login</h1>
+            <p style={{ color: "red" }}>{authMessage}</p>
 
-  return (
-    <div>
-      <h1>Login</h1>
-      <p style={{ color: 'red' }}>{errorMessage}</p>
-      <form onSubmit={handleLogin}>
-        <span>Username:<input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        /></span>
-        <br />
-        <span>Password:<input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        /></span>
-        <br />
-        <button type="submit">Login</button>
-        <br />
-        <button onClick={switchToSignup}>Switch to Signup</button>
-      </form>
-    </div>
-  );
+            <label>Username: </label>
+            <input
+                type="text"
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder='Enter your username'
+            />
+            <br />
+
+            <label>Password: </label>
+            <input
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder='Enter your password'
+            />
+            <br />
+
+            <button onClick={handleAuthenication}>Login</button> <br />
+            <button onClick={gotoSignupForm}>Switch to Signup</button>
+        </div>
+    );
 };
 
 export default LoginForm;
