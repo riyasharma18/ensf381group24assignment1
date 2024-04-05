@@ -22,7 +22,7 @@ function ProductList(props){
 
   return(
       <div className="product-list">
-          {(products) ? <ProductItem products={products} handleCartAdd={props.handleCartAdd} /> : ""}
+          {(products) ? <ProductItem product={products} addToCart={props.addToCart} /> : ""}
       </div>
   );
 };
