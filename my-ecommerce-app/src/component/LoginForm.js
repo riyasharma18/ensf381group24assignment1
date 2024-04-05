@@ -42,7 +42,7 @@ function LoginForm() {
                     throw new Error('Authentication failed');
                 }
             })
-            .then(data => {setAuthMessage(data.authMessage); setAuthenticated(data.authenticated); sessionStorage.setItem('authenticated', data.authenticated)})
+            .then(data => {setAuthMessage(data.authMessage); setAuthenticated(data.authenticated);})
             .catch(error => setAuthMessage(error));
     }console.log(authMessage)
     };

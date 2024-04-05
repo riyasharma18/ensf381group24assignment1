@@ -3,9 +3,19 @@ import Header from './Header';
 import ProductList from './ProductList';
 import Cart from './Cart';
 import Footer from './Footer';
+import {useNavigate} from 'react-router-dom';
+import { useAuthContext } from '../App.js';
 
 function ProductPage() {
   const [cart, setCart] = useState([]);
+  const {authenticated, setAuthenticated} = useAuthContext();
+  const navigate = useNavigate();
+
+  useEffect(()=> {
+    if (!authenticated){
+        navigate(`/login`);
+    }
+},[authenticated, navigate])
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('cart'));

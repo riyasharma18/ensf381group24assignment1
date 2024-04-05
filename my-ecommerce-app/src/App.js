@@ -8,8 +8,7 @@ import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 const AuthContext = createContext();
 export const useAuthContext = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
-  const isAuthenticated = sessionStorage.getItem('authenticated')
-  const [authenticated, setAuthenticated] = useState(isAuthenticated ? isAuthenticated : false);
+  const [authenticated, setAuthenticated] = useState(false);
 
   return(
     <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
