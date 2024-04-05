@@ -86,7 +86,7 @@ def register():
     password = information.get('password')
     email = information.get('email')
     if any(user['username'] == username for user in users):
-        return jsonify({'error': 'This username already exists'})
+        return jsonify({'message': 'This username already exists'})
     users.append({'username': username, 'password': password, 'email': email})
     return jsonify({'message': 'This user has been successfully registered'})
 

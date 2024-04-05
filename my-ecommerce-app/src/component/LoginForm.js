@@ -36,7 +36,7 @@ function LoginForm() {
             })
             .then(response => {
                 if (response.ok) {
-    
+                    navigate(`/products`)
                   return response.json();
                 } else {
                     throw new Error('Authentication failed');

@@ -36,7 +36,7 @@ function SignupForm() {
             throw new Error('Registration failed');
           }
         })
-        .then(data => setErrorMessage(data.errorMessage))
+        .then(data => setErrorMessage(data.message))
         .catch(error => setErrorMessage("An error occurred during signup. Please try again later."));
       }
     }
